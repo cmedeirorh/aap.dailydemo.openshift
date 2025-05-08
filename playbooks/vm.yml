@@ -4,6 +4,7 @@
   gather_facts: false
   vars:
     ansible_python_interpreter: /usr/bin/python3
+    vm_image: quay.io/containerdisks/fedora:latest
 
   tasks:
 
@@ -34,7 +35,7 @@
                 networkName: kindexgw
           volumes:
             - containerDisk:
-                image: quay.io/containerdisks/fedora:latest
+                image: '{{ vm_image }}'
               name: containerdisk
             - cloudInitNoCloud:
                 userData: |-
